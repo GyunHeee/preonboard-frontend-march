@@ -13,8 +13,8 @@ export default function TodoList() {
       <TodoForm />
       <List>
         {todoList &&
-          todoList.map((todo: todo) => {
-            return <TodoItem todo={todo} />;
+          todoList.map((todoItem: todo) => {
+            return <TodoItem todo={todoItem} />;
           })}
       </List>
     </Container>
@@ -30,5 +30,4 @@ const List = styled.ul`
   list-style: none;
   margin: 3rem;
   padding: 2rem;
-  background: #bae6e6;
 `;

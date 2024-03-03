@@ -1,12 +1,20 @@
+import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
+import { deleteTodo } from '../../store/todo';
+import { todo } from '../../model/todo';
 
-export default function TodoItem({ todo }) {
+export default function TodoItem({ todo }: todo) {
   console.log(todo);
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteTodo(todo.id));
+  };
 
   return (
     <Section>
       <Text key={todo.id}>{todo.todoText}</Text>
-      <DeleteBtn>Delete</DeleteBtn>
+      <DeleteBtn onClick={handleDelete}>Delete</DeleteBtn>
     </Section>
   );
 }
