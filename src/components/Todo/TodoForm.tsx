@@ -1,17 +1,30 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
+import { addTodo } from '../../store/todo';
 
 export default function TodoForm() {
+  const dispatch = useDispatch();
+  const [todoText, setTodoText] = useState('');
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    console.log(todoText);
+    dispatch(addTodo(todoText));
+    setTodoText('');
+  };
+
   return (
-    <Section>
-      <input type="text" />
-      <button>Add</button>
-    </Section>
+    <Form>
+      <input type="text" onChange={(e) => setTodoText(e.target.value)} />
+      <button onClick={(e) => handleAdd(e)}>Add</button>
+    </Form>
   );
 }
 
-const Section = styled.section`
+const Form = styled.form`
   display: flex;
-  justify-contents: center;
+  justify-content: center;
   align-items: center;
   margin: auto;
 `;
