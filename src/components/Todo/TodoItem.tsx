@@ -3,7 +3,11 @@ import { styled } from 'styled-components';
 import { deleteTodo } from '../../store/todo';
 import { todo } from '../../model/todo';
 
-export default function TodoItem({ todo }: todo) {
+interface TodoItemProps {
+  todo: todo;
+}
+
+export default function TodoItem({ todo }: TodoItemProps) {
   console.log(todo);
   const dispatch = useDispatch();
 
