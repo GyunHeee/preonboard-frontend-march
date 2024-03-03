@@ -58,7 +58,7 @@ Add와 Delete 기능 2 가지를 만듭니다.
 5. 궁금한 것에 대하여 알려주세요. 
 
 
-#제출
+# ✅ 제출🧑🏻‍💻
 # 과제1
 https://github.com/GyunHeee/preonboard-frontend-march?tab=readme-ov-file
 
