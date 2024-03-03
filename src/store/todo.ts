@@ -1,14 +1,16 @@
+import { todo } from '../model/todo';
+
 // Action types
 const ADD_TODO = 'todo/ADD_TODO';
 const DELETE_TODO = 'todo/DELETE_TODO';
 
 // Action creators
-export const addTodo = (todo) => ({
+export const addTodo = (todo: todo) => ({
   type: ADD_TODO,
   payload: { todo },
 });
 
-export const deleteTodo = (id: number) => ({
+export const deleteTodo = (id: string) => ({
   type: DELETE_TODO,
   payload: { id },
 });
@@ -30,7 +32,7 @@ export default function todoReducer(state = initialState, action) {
       return {
         ...state,
         todoList: state.todoList.filter(
-          (todo) => todo.id !== action.payload.id
+          (todo: todo) => todo.id !== action.payload.id
         ),
       };
     default:

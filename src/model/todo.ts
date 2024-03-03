@@ -1,3 +1,4 @@
-type todo = {
-  id: number;
+export type todo = {
+  id: string;
+  todoText: string;
 };

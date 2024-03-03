@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { styled } from 'styled-components';
 import { addTodo } from '../../store/todo';
+import uuid from 'react-uuid';
 
 export default function TodoForm() {
   const dispatch = useDispatch();
@@ -9,7 +10,11 @@ export default function TodoForm() {
 
   const handleAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    dispatch(addTodo(todoText));
+    console.log(uuid());
+    const todoId = uuid();
+
+    const todo = { todoText, id: todoId };
+    dispatch(addTodo(todo));
     setTodoText('');
   };
 

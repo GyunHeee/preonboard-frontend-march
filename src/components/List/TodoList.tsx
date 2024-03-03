@@ -1,18 +1,34 @@
 import { styled } from 'styled-components';
 import TodoForm from '../Todo/TodoForm';
 import TodoItem from '../Todo/TodoItem';
+import { useSelector } from 'react-redux';
+import { todo } from '../../model/todo';
 
 export default function TodoList() {
+  const todoList = useSelector((state) => state.todo.todoList);
+  console.log(todoList);
+
   return (
     <Container>
       <TodoForm />
-      <ul>
-        <TodoItem />
-      </ul>
+      <List>
+        {todoList &&
+          todoList.map((todo: todo) => {
+            return <TodoItem todo={todo} />;
+          })}
+      </List>
     </Container>
   );
 }
 
 const Container = styled.section`
-  margin-top: 5rem;
+  margin: 5rem;
+  height: 100%;
+`;
+
+const List = styled.ul`
+  list-style: none;
+  margin: 3rem;
+  padding: 2rem;
+  background: #bae6e6;
 `;
