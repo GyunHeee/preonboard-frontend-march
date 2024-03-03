@@ -11,4 +11,7 @@ export default function TodoForm() {
 
 const Section = styled.section`
   display: flex;
+  justify-contents: center;
+  align-items: center;
+  margin: auto;
 `;
